@@ -4,24 +4,22 @@ def get_indices_of_item_weights(weights, length, limit):
     """
     # Your code here
     weight = {}
-    duplicates = {}
-    duplicates_check = False
-    for x in range(length):
+    duplicates = {} # account for duplicate weights [4, 4]
+    duplicates_check = False # in order to pass test number 2
+    for x in range(length): #loop through weights and store them into the dictionary 
         current = weights[x]
-        weight[current] = x
-        target = limit - current
+        weight[current] = x #  setting the value to the index 
+        target = limit - current #subtracting the current value from the limit to find which package combines to equal weight limit 
         if target in weight:
             if current > target or current < target:
                 return (x, weight[target])
-            elif target == current:
+            elif target == current: # if it finds a duplicate 
                 if duplicates_check is False:
                     duplicates_check = True
                     duplicates[current] = x
                 elif duplicates_check is True:
                     return (x, duplicates[current])
     return None
-
-
 '''
 Understanding
 -given a weight limit as the limit argument: number/int

@@ -2,21 +2,13 @@ def has_negatives(a):
     """
     YOUR CODE HERE
     """
-    dict = {}
-    result = []
-    for num in a:
-        if dict.get(abs(num)):
-            result.append(abs(num))
+    d = {} # dictionary
+    result = [] # list to return results
+    for num in a: # if the num has a corrisponding number in the dictionary
+        if d.get(abs(num)): # .get method returns the value for the given key
+            result.append(abs(num)) #append the results to the list
         else:
-            dict[abs(num)] = num
+            d[abs(num)] = num #if no value is found pass dict a new key along with its value. 
     return result
 if __name__ == "__main__":
     print(has_negatives([-1, -2, 1, 2, 3, 4, -4]))
-"""
-line 5: dictionary holds all numbers in a 
-line 6: array to return matches in absolute value(result)
-line 7: if the num has a corresponding number in dictionary
-line 8: .get method returns the value for the givin key
-line 9: adding results to the list
-line 10: if no value is found pass num a new key along with its value
-"""
